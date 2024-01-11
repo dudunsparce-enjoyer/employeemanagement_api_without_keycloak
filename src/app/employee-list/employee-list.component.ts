@@ -18,7 +18,7 @@ export class EmployeeListComponent {
   }
 
   fetchData() {
-    this.employees$ = this.http.get<Employee[]>('/backend', {
+    this.employees$ = this.http.get<Employee[]>('http://localhost:8089/employees', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     });
