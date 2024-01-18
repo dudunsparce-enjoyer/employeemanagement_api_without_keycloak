@@ -9,6 +9,31 @@ table, th, td {
   border-collapse: collapse;
 }
 
+.popupBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0008;
+  display: none;
+  /* when active
+  display: grid;
+   */
+  justify-items: center;
+  align-items: center;
+}
+
+.popup {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 1em;
+  padding: 3em;
+  width: fit-content;
+  height: fit-content;
+}
+
 .our-button {
   padding: 1em;
   margin: 1em;

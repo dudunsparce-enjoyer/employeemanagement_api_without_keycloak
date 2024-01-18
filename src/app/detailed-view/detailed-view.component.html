@@ -1,4 +1,4 @@
-<div>
+<div class="detailedView">
   <h2>Person bearbeiten</h2>
   <form [formGroup]="employeeForm">
     <table>
@@ -34,4 +34,12 @@
     <button class="our-button" (click)="updateEmployee()">Update</button>
     <button class="our-button" (click)="deleteEmployee()">Delete</button>
   </form>
+</div>
+
+<div class="popupBackground">
+  <div class="popup">
+    <p>Bist du dir sicher, dass du den Mitarbeiter löschen willst?</p>
+    <button>Löschen</button>
+    <button>Abbrechen</button>
+  </div>
 </div>
