@@ -13,7 +13,10 @@ export class DetailedViewComponent implements OnInit {
   employee$: Observable<Employee> | undefined;
   id: number | undefined;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
