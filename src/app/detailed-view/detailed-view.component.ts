@@ -3,8 +3,6 @@ import {ActivatedRoute} from '@angular/router';
 import {Employee} from '../Employee';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {FormControl, FormGroup} from "@angular/forms";
-import {Qualification} from "../Qualification";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-detailed-view',
@@ -12,7 +10,6 @@ import {Observable} from "rxjs";
   styleUrls: ['./detailed-view.component.css']
 })
 export class DetailedViewComponent implements OnInit {
-  skills$: Observable<Qualification[]>;
   id: number | undefined;
   employeeForm = new FormGroup({
     lastName: new FormControl(''),
@@ -20,32 +17,25 @@ export class DetailedViewComponent implements OnInit {
     street: new FormControl(''),
     postcode: new FormControl(''),
     city: new FormControl(''),
-    phone: new FormControl(''),
-    skillSet: new FormControl<Qualification[]>([]),
-    skillSetDisplay: new FormControl('')
+    phone: new FormControl('')
   });
 
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient
   ) {
-    this.skills$ = this.http.get<Qualification[]>('http://localhost:8089/qualifications', {
-      headers: new HttpHeaders().set('Content-Type', 'application/json')
-    });
   }
 
   saveEmployee() {
-    const formValue = this.employeeForm.value;
-    let employee: Employee = {
+    const employee: Employee = {
       id: this.id,
-      ...formValue,
+      ...this.employeeForm.value,
       lastName: this.employeeForm.value.lastName || '',
       firstName: this.employeeForm.value.firstName || '',
       street: this.employeeForm.value.street || '',
       postcode: this.employeeForm.value.postcode || '',
       city: this.employeeForm.value.city || '',
-      phone: this.employeeForm.value.phone || '',
-      skillSet: formValue.skillSet ? formValue.skillSet.map((skill: Qualification) => skill) : []
+      phone: this.employeeForm.value.phone || ''
     };
 
     if (!this.id) {
@@ -97,9 +87,7 @@ export class DetailedViewComponent implements OnInit {
         street: '',
         postcode: '',
         city: '',
-        phone: '',
-        skillSet: [],
-        skillSetDisplay: ''
+        phone: ''
       });
     } else {
       this.http.get<Employee>(
@@ -114,9 +102,7 @@ export class DetailedViewComponent implements OnInit {
           street: employee.street || null,
           postcode: employee.postcode || null,
           city: employee.city || null,
-          phone: employee.phone || null,
-          skillSet: employee.skillSet || [],
-          skillSetDisplay: employee.skillSet ? employee.skillSet.map(skill => skill.id).join(', ') : ''
+          phone: employee.phone || null
         });
       });
     }
