@@ -43,6 +43,13 @@ export class DetailedViewComponent implements OnInit {
     }).subscribe();
   }
 
+  deleteEmployee() {
+    this.http.delete(`http://localhost:8089/employees/${this.id}`, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).subscribe();
+  }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id']; // Konvertiere den Parameter in eine Zahl
