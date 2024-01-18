@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Employee } from '../Employee';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-detailed-view',
@@ -10,13 +10,37 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./detailed-view.component.css']
 })
 export class DetailedViewComponent implements OnInit {
-  employee$: Observable<Employee> | undefined;
   id: number | undefined;
+  employeeForm = new FormGroup({
+    lastName: new FormControl(''),
+    firstName: new FormControl(''),
+    street: new FormControl(''),
+    postcode: new FormControl(''),
+    city: new FormControl(''),
+    phone: new FormControl('')
+  });
 
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient
   ) {}
+
+  updateEmployee() {
+    const updatedEmployee: Employee = {
+      ...this.employeeForm.value,
+      lastName: this.employeeForm.value.lastName || '',
+      firstName: this.employeeForm.value.firstName || '',
+      street: this.employeeForm.value.street || '',
+      postcode: this.employeeForm.value.postcode || '',
+      city: this.employeeForm.value.city || '',
+      phone: this.employeeForm.value.phone || ''
+    };
+
+    this.http.put(`http://localhost:8089/employees/${updatedEmployee.id}`, updatedEmployee, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).subscribe();
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -26,11 +50,20 @@ export class DetailedViewComponent implements OnInit {
   }
 
   fetchData() {
-    this.employee$ = this.http.get<Employee>(
+    this.http.get<Employee>(
       'http://localhost:8089/employees/' + this.id,
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json')
       }
-    );
+    ).subscribe((employee: Employee) => {
+      this.employeeForm.setValue({
+        lastName: employee.lastName || null,
+        firstName: employee.firstName || null,
+        street: employee.street || null,
+        postcode: employee.postcode || null,
+        city: employee.city || null,
+        phone: employee.phone || null
+      });
+    });
   }
 }

@@ -1,29 +1,36 @@
 <div>
   <h2>Person bearbeiten</h2>
-  <table>
-    <tr>
-      <th>Eigenschaft</th>
-      <th>Wert</th>
-    </tr>
-    <tr>
-      <td>Nachname</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Vorname</td>
-      <td>Wert</td>
-    </tr>
-    <tr>
-      <td>Straße</td>
-      <td>Wert</td>
-    </tr>
-    <tr>
-      <td>Postcode</td>
-      <td>Wert</td>
-    </tr>
-    <tr>
-      <td>Stadt</td>
-      <td>Wert</td>
-    </tr>
-  </table>
+  <form [formGroup]="employeeForm">
+    <table>
+      <tr>
+        <th>Eigenschaft</th>
+        <th>Wert</th>
+      </tr>
+      <tr>
+        <td>Nachname</td>
+        <td><input type="text" formControlName="lastName"></td>
+      </tr>
+      <tr>
+        <td>Vorname</td>
+        <td><input type="text" formControlName="firstName"></td>
+      </tr>
+      <tr>
+        <td>Straße</td>
+        <td><input type="text" formControlName="street"></td>
+      </tr>
+      <tr>
+        <td>Postcode</td>
+        <td><input type="text" formControlName="postcode"></td>
+      </tr>
+      <tr>
+        <td>Stadt</td>
+        <td><input type="text" formControlName="city"></td>
+      </tr>
+      <tr>
+        <td>Telefon</td>
+        <td><input type="text" formControlName="phone"></td>
+      </tr>
+    </table>
+    <button (click)="updateEmployee()">Update</button>
+  </form>
 </div>
