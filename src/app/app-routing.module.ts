@@ -23,6 +23,7 @@ const invalidRoute: Route = {
 const routes: Routes = [
   employeeRoute,
   detailedViewRoute,
+  { path: 'employee/create', component: DetailedViewComponent },
   invalidRoute,
 ];
 

@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Employee } from '../Employee';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Employee} from '../Employee';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {FormControl, FormGroup} from "@angular/forms";
-import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-detailed-view',
@@ -24,7 +23,8 @@ export class DetailedViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient
-  ) {}
+  ) {
+  }
 
   updateEmployee() {
     const updatedEmployee: Employee = {
@@ -38,22 +38,20 @@ export class DetailedViewComponent implements OnInit {
       phone: this.employeeForm.value.phone || ''
     };
 
-    this.http.put(`http://localhost:8089/employees/${updatedEmployee.id}`, updatedEmployee, {
-      headers: new HttpHeaders()
-        .set('Content-Type', 'application/json')
-    }).subscribe();
-
-    window.location.href = "../";
-    if (this.id === 0) {
+    if (!this.id) {
       this.http.post('http://localhost:8089/employees', updatedEmployee, {
         headers: new HttpHeaders()
           .set('Content-Type', 'application/json')
-      }).subscribe();
+      }).subscribe(() => {
+        window.location.href = "../";
+      });
     } else {
       this.http.put(`http://localhost:8089/employees/${updatedEmployee.id}`, updatedEmployee, {
         headers: new HttpHeaders()
           .set('Content-Type', 'application/json')
-      }).subscribe();
+      }).subscribe(() => {
+        window.location.href = "../";
+      });
     }
   }
 
@@ -74,7 +72,7 @@ export class DetailedViewComponent implements OnInit {
   }
 
   fetchData() {
-    if (this.id === 0) {
+    if (!this.id) {
       this.employeeForm.setValue({
         lastName: '',
         firstName: '',
