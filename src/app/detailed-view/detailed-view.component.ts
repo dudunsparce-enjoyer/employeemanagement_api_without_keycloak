@@ -67,4 +67,7 @@ export class DetailedViewComponent implements OnInit {
       });
     });
   }
+
+  test() {
+  }
 }

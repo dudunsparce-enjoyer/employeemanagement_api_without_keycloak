@@ -1,5 +1,12 @@
-div {
+.header {
   height: 100px;
   width: 100%;
   background-color: #88f;
+  display: flex;
+  align-items: center;
+}
+
+.titleContainer {
+  color: #fff;
+  padding: 1em 5em;
 }

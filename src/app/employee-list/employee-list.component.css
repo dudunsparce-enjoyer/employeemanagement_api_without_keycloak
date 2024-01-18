@@ -2,3 +2,8 @@ table, th, td {
   border: 1px solid #000;
   border-collapse: collapse;
 }
+
+th, td {
+  padding: 1em;
+  font-size: 1.2em;
+}
