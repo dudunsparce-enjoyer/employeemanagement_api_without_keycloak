@@ -26,8 +26,8 @@ export class DetailedViewComponent implements OnInit {
   ) {
   }
 
-  updateEmployee() {
-    const updatedEmployee: Employee = {
+  saveEmployee() {
+    const employee: Employee = {
       id: this.id,
       ...this.employeeForm.value,
       lastName: this.employeeForm.value.lastName || '',
@@ -39,20 +39,28 @@ export class DetailedViewComponent implements OnInit {
     };
 
     if (!this.id) {
-      this.http.post('http://localhost:8089/employees', updatedEmployee, {
-        headers: new HttpHeaders()
-          .set('Content-Type', 'application/json')
-      }).subscribe(() => {
-        window.location.href = "../";
-      });
+      this.createEmployee(employee);
     } else {
-      this.http.put(`http://localhost:8089/employees/${updatedEmployee.id}`, updatedEmployee, {
-        headers: new HttpHeaders()
-          .set('Content-Type', 'application/json')
-      }).subscribe(() => {
-        window.location.href = "../";
-      });
+      this.updateEmployee(employee);
     }
+  }
+
+  createEmployee(employee: Employee) {
+    this.http.post('http://localhost:8089/employees', employee, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).subscribe(() => {
+      window.location.href = "../";
+    });
+  }
+
+  updateEmployee(employee: Employee) {
+    this.http.put(`http://localhost:8089/employees/${employee.id}`, employee, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).subscribe(() => {
+      window.location.href = "../";
+    });
   }
 
   deleteEmployee() {
