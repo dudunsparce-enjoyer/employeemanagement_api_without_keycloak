@@ -30,6 +30,14 @@
         <td>Telefon</td>
         <td><input type="text" formControlName="phone"></td>
       </tr>
+      <tr>
+        <td>Fähigkeiten</td>
+        <td>
+          <select multiple formControlName="skillSet">
+            <option *ngFor="let skill of skills$ | async" [value]="skill.id">{{ skill.skill }}</option>
+          </select>
+        </td>
+      </tr>
     </table>
     <button class="our-button" (click)="saveEmployee()">Update</button>
     <button class="our-button" (click)="openPopupWindow()">Delete</button>
