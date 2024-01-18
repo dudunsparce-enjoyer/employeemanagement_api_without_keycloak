@@ -26,7 +26,7 @@ export class EmployeeListComponent {
   }
 
   createEmployee() {
-    this.router.navigate(['/employee', 0]);
+    void this.router.navigate(['/employee', 0]);
   }
 
   redirectToDetailedView(id: number | undefined) {
