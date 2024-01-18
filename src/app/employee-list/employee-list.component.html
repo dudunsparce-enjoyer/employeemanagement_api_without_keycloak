@@ -1,3 +1,4 @@
+<button (click)="createEmployee()">Create</button>
 <table>
   <tr>
     <th>Name</th>
@@ -8,14 +9,14 @@
     <th>Skill Set</th>
   </tr>
   <tr *ngFor="let e of employees$ | async">
-    <td>{{e.lastName}}, {{e.firstName}}</td>
-    <td>{{e.street}}</td>
-    <td>{{e.postcode}}</td>
-    <td>{{e.city}}</td>
-    <td>{{e.phone}}</td>
+    <td>{{ e.lastName }}, {{ e.firstName }}</td>
+    <td>{{ e.street }}</td>
+    <td>{{ e.postcode }}</td>
+    <td>{{ e.city }}</td>
+    <td>{{ e.phone }}</td>
     <td>
       <p *ngFor="let q of e.skillSet">
-        {{q.skill}}
+        {{ q.skill }}
       </p>
     </td>
     <td>

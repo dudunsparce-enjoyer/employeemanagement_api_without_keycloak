@@ -44,6 +44,17 @@ export class DetailedViewComponent implements OnInit {
     }).subscribe();
 
     window.location.href = "../";
+    if (this.id === 0) {
+      this.http.post('http://localhost:8089/employees', updatedEmployee, {
+        headers: new HttpHeaders()
+          .set('Content-Type', 'application/json')
+      }).subscribe();
+    } else {
+      this.http.put(`http://localhost:8089/employees/${updatedEmployee.id}`, updatedEmployee, {
+        headers: new HttpHeaders()
+          .set('Content-Type', 'application/json')
+      }).subscribe();
+    }
   }
 
   deleteEmployee() {
@@ -63,23 +74,31 @@ export class DetailedViewComponent implements OnInit {
   }
 
   fetchData() {
-    this.http.get<Employee>(
-      'http://localhost:8089/employees/' + this.id,
-      {
-        headers: new HttpHeaders().set('Content-Type', 'application/json')
-      }
-    ).subscribe((employee: Employee) => {
+    if (this.id === 0) {
       this.employeeForm.setValue({
-        lastName: employee.lastName || null,
-        firstName: employee.firstName || null,
-        street: employee.street || null,
-        postcode: employee.postcode || null,
-        city: employee.city || null,
-        phone: employee.phone || null
+        lastName: '',
+        firstName: '',
+        street: '',
+        postcode: '',
+        city: '',
+        phone: ''
       });
-    });
-  }
-
-  test() {
+    } else {
+      this.http.get<Employee>(
+        'http://localhost:8089/employees/' + this.id,
+        {
+          headers: new HttpHeaders().set('Content-Type', 'application/json')
+        }
+      ).subscribe((employee: Employee) => {
+        this.employeeForm.setValue({
+          lastName: employee.lastName || null,
+          firstName: employee.firstName || null,
+          street: employee.street || null,
+          postcode: employee.postcode || null,
+          city: employee.city || null,
+          phone: employee.phone || null
+        });
+      });
+    }
   }
 }
