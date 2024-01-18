@@ -24,4 +24,7 @@ export class EmployeeListComponent {
     });
   }
 
+  redirectToDetailedView(id: number | undefined) {
+    window.location.href += "/" + id;
+  }
 }

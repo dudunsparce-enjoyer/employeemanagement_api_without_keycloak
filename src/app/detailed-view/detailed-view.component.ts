@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Employee } from '../Employee';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {FormControl, FormGroup} from "@angular/forms";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-detailed-view',
@@ -41,6 +42,8 @@ export class DetailedViewComponent implements OnInit {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     }).subscribe();
+
+    window.location.href = "../";
   }
 
   deleteEmployee() {
@@ -48,6 +51,8 @@ export class DetailedViewComponent implements OnInit {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     }).subscribe();
+
+    window.location.href = "../";
   }
 
   ngOnInit() {
