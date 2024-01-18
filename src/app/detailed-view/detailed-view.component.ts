@@ -10,16 +10,15 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   styleUrls: ['./detailed-view.component.css']
 })
 export class DetailedViewComponent {
+  employee$: Observable<Employee>;
 
-  employees$: Observable<Employee[]>;
-
-  constructor(private http: HttpClient) {
-    this.employees$ = of([]);
+  constructor(private http: HttpClient, public id: Number) {
+    this.employee$ = of();
     this.fetchData();
   }
 
   fetchData() {
-    this.employees$ = this.http.get<Employee[]>('http://localhost:8089/employees', {
+    this.employee$ = this.http.get<Employee>('http://localhost:8089/employees/' + this.id, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     });
