@@ -1,27 +1,33 @@
-import { Component } from '@angular/core';
-import {EmployeeListComponent} from "../employee-list/employee-list.component";
-import {Observable, of} from "rxjs";
-import {Employee} from "../Employee";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Employee } from '../Employee';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-detailed-view',
   templateUrl: './detailed-view.component.html',
   styleUrls: ['./detailed-view.component.css']
 })
-export class DetailedViewComponent {
-  employee$: Observable<Employee>;
+export class DetailedViewComponent implements OnInit {
+  employee$: Observable<Employee> | undefined;
+  id: number | undefined;
 
-  constructor(private http: HttpClient, public id: Number) {
-    this.employee$ = of();
-    this.fetchData();
-  }
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
-  fetchData() {
-    this.employee$ = this.http.get<Employee>('http://localhost:8089/employees/' + this.id, {
-      headers: new HttpHeaders()
-        .set('Content-Type', 'application/json')
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.id = +params['id']; // Konvertiere den Parameter in eine Zahl
+      this.fetchData();
     });
   }
 
+  fetchData() {
+    this.employee$ = this.http.get<Employee>(
+      'http://localhost:8089/employees/' + this.id,
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/json')
+      }
+    );
+  }
 }
