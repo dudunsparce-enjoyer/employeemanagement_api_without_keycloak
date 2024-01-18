@@ -1,0 +1,16 @@
+.detailedViewBackground {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #0000;
+  /* when active
+  background: #0008;
+   */
+  left: 0;
+  top: 0;
+  display: grid;
+}
+
+.detailedViewContainer {
+  background-color: #fff;
+}
