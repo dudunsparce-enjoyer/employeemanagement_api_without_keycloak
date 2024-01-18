@@ -27,6 +27,7 @@ export class DetailedViewComponent implements OnInit {
 
   updateEmployee() {
     const updatedEmployee: Employee = {
+      id: this.id,
       ...this.employeeForm.value,
       lastName: this.employeeForm.value.lastName || '',
       firstName: this.employeeForm.value.firstName || '',
