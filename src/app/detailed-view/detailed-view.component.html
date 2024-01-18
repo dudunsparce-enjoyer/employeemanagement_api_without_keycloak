@@ -32,14 +32,14 @@
       </tr>
     </table>
     <button class="our-button" (click)="updateEmployee()">Update</button>
-    <button class="our-button" (click)="deleteEmployee()">Delete</button>
+    <button class="our-button" (click)="openPopupWindow()">Delete</button>
   </form>
 </div>
 
 <div class="popupBackground">
   <div class="popup">
     <p>Bist du dir sicher, dass du den Mitarbeiter löschen willst?</p>
-    <button class="our-button">Löschen</button>
-    <button class="our-button">Abbrechen</button>
+    <button class="our-button" (click)="deleteEmployee()">Löschen</button>
+    <button class="our-button" (click)="closePopupWindow()">Abbrechen</button>
   </div>
 </div>

@@ -99,4 +99,20 @@ export class DetailedViewComponent implements OnInit {
       });
     }
   }
+
+  openPopupWindow() {
+    let popupBackground: HTMLDivElement | null = document.querySelector(".popupBackground");
+
+    if (popupBackground !== null) {
+      popupBackground.style.display = "grid";
+    }
+  }
+
+  closePopupWindow() {
+    let popupBackground: HTMLDivElement | null = document.querySelector(".popupBackground");
+
+    if (popupBackground !== null) {
+      popupBackground.style.display = "";
+    }
+  }
 }
