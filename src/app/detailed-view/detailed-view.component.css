@@ -8,3 +8,8 @@ table, th, td {
   border: 1px solid #000;
   border-collapse: collapse;
 }
+
+.our-button {
+  padding: 1em;
+  margin: 1em;
+}
