@@ -67,9 +67,9 @@ export class DetailedViewComponent implements OnInit {
     this.http.delete(`http://localhost:8089/employees/${this.id}`, {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-    }).subscribe();
-
-    window.location.href = "../";
+    }).subscribe(() => {
+      window.location.href = "../";
+    });
   }
 
   ngOnInit() {
