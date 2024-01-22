@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Observable, of} from "rxjs";
+import {map, Observable, of} from "rxjs";
 import {Employee} from "../Employee";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from '@angular/router';
@@ -22,7 +22,10 @@ export class EmployeeListComponent {
     this.employees$ = this.http.get<Employee[]>('http://localhost:8089/employees', {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
-    });
+    }).pipe(
+      // @ts-ignore
+      map(messages => messages.sort((a1: Employee, a2: Employee) => a1.id - a2.id ))
+    );
   }
 
   createEmployee() {
