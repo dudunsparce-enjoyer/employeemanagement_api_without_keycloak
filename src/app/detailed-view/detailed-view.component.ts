@@ -35,7 +35,8 @@ export class DetailedViewComponent implements OnInit {
       street: this.employeeForm.value.street || '',
       postcode: this.employeeForm.value.postcode || '',
       city: this.employeeForm.value.city || '',
-      phone: this.employeeForm.value.phone || ''
+      phone: this.employeeForm.value.phone || '',
+      skillSet: undefined // todo: should be whatever the employee had when they were loaded
     };
 
     if (!this.id) {
