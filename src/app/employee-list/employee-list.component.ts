@@ -4,6 +4,7 @@ import {Employee} from "../Employee";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
@@ -24,7 +25,7 @@ export class EmployeeListComponent {
         .set('Content-Type', 'application/json')
     }).pipe(
       // @ts-ignore
-      map(messages => messages.sort((a1: Employee, a2: Employee) => a1.id - a2.id ))
+      map(messages => messages.sort((a1: Employee, a2: Employee) => a1.id - a2.id))
     );
   }
 

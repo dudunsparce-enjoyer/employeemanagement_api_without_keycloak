@@ -20,12 +20,19 @@ export class DetailedViewComponent implements OnInit {
     city: new FormControl(''),
     phone: new FormControl('')
   });
-  // todo public skillSet?: Array<Qualification>
+  isCreateMode: boolean = false;
+
 
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient
   ) {
+  }
+
+  checkCreationMode(): void {
+    this.route.url.subscribe(urlSegments => {
+      this.isCreateMode = urlSegments[urlSegments.length - 1].path === 'create';
+    });
   }
 
   saveEmployee() {
@@ -76,6 +83,7 @@ export class DetailedViewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.checkCreationMode();
     this.route.params.subscribe(params => {
       this.id = +params['id'];
       // todo this.skillSet = params['skillSet'];

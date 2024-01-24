@@ -1,6 +1,6 @@
 <div class="detailedViewWrapper">
   <div class="detailedView">
-    <h1>Person bearbeiten</h1>
+    <h1>{{ isCreateMode ? 'Neuen Mitarbeiter anlegen' : 'Mitarbeiter bearbeiten' }}</h1>
     <form [formGroup]="employeeForm">
       <table>
         <tr>
@@ -33,7 +33,8 @@
         </tr>
       </table>
       <button class="button-affirm" (click)="saveEmployee()">Speichern</button>
-      <button class="button-deny" (click)="openPopupWindow()">Löschen</button>
+      <button *ngIf="!isCreateMode" class="button-deny" (click)="openPopupWindow()">Löschen</button>
+
       <button class="button-neutral" (click)="closeDetailedView()">Zurück</button>
     </form>
   </div>
