@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
-import {Employee} from "./Employee";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable, of} from "rxjs";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +8,9 @@ import {Observable, of} from "rxjs";
 })
 export class AppComponent {
 
-  constructor() {
- }
+  constructor(private titleService: Title) {}
 
+  ngOnInit() {
+    this.titleService.setTitle('Mitarbeiterverwaltung');
+  }
 }
