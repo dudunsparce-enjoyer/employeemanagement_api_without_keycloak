@@ -12,6 +12,9 @@ h1 {
 }
 
 .detailedView {
+  background-color: #fff;
+  align-self: center;
+  justify-self: center;
   margin-top: 1em;
 }
 
@@ -19,12 +22,6 @@ table {
   margin-left: auto;
   margin-right: auto;
   text-align: left;
-}
-
-div {
-  background-color: #fff;
-  align-self: center;
-  justify-self: center;
 }
 
 table, th, td {
@@ -53,6 +50,23 @@ tr input {
   font-size: 24px;
 }
 
+.buttonContainer, .popupButtonContainer {
+  width: 100%;
+  display: flex;
+}
+
+.buttonContainer {
+  justify-content: space-between;
+}
+
+.popupButtonContainer {
+  justify-content: space-around;
+}
+
+.buttonContainer button, .popupButtonContainer button {
+  margin-left: 0;
+  margin-right: 0;
+}
 
 .popupBackground {
   position: fixed;

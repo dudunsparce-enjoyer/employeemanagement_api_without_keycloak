@@ -32,17 +32,21 @@
           <td><input type="text" formControlName="phone"></td>
         </tr>
       </table>
-      <button class="button-affirm" (click)="saveEmployee()">Speichern</button>
-      <button *ngIf="!isCreateMode" class="button-deny" (click)="openPopupWindow()">Löschen</button>
-      <button class="button-neutral" (click)="closeDetailedView()">Zurück</button>
+      <div class="buttonContainer">
+        <button class="button-affirm" (click)="saveEmployee()">Speichern</button>
+        <button *ngIf="!isCreateMode" class="button-deny" (click)="openPopupWindow()">Löschen</button>
+        <button class="button-neutral" (click)="closeDetailedView()">Zurück</button>
+      </div>
     </form>
   </div>
 
   <div class="popupBackground">
     <div class="popup">
       <p>Bist du dir sicher, dass du den Mitarbeiter löschen willst?</p>
-      <button class="button-deny" (click)="deleteEmployee()">Ja</button>
-      <button class="button-neutral" (click)="closePopupWindow()">Nein</button>
+      <div class="popupButtonContainer">
+        <button class="button-deny" (click)="deleteEmployee()">Ja</button>
+        <button class="button-neutral" (click)="closePopupWindow()">Nein</button>
+      </div>
     </div>
   </div>
 </div>
