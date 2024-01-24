@@ -1,46 +1,48 @@
-<div class="detailedView">
-  <h2>Person bearbeiten</h2>
-  <form [formGroup]="employeeForm">
-    <table>
-      <tr>
-        <th>Eigenschaft</th>
-        <th>Wert</th>
-      </tr>
-      <tr>
-        <td>Nachname</td>
-        <td><input type="text" formControlName="lastName"></td>
-      </tr>
-      <tr>
-        <td>Vorname</td>
-        <td><input type="text" formControlName="firstName"></td>
-      </tr>
-      <tr>
-        <td>Straße</td>
-        <td><input type="text" formControlName="street"></td>
-      </tr>
-      <tr>
-        <td>Postcode</td>
-        <td><input type="text" formControlName="postcode"></td>
-      </tr>
-      <tr>
-        <td>Stadt</td>
-        <td><input type="text" formControlName="city"></td>
-      </tr>
-      <tr>
-        <td>Telefon</td>
-        <td><input type="text" formControlName="phone"></td>
-      </tr>
-    </table>
-    <button class="our-button" (click)="saveEmployee()">Speichern</button>
-    <button class="our-button" (click)="openPopupWindow()">Löschen</button>
-    <button class="our-button" (click)="closeDetailedView()">Zurück</button>
-  </form>
-</div>
+<div class="detailedViewWrapper">
+  <div class="detailedView">
+    <h2>Person bearbeiten</h2>
+    <form [formGroup]="employeeForm">
+      <table>
+        <tr>
+          <th>Eigenschaft</th>
+          <th>Wert</th>
+        </tr>
+        <tr>
+          <td>Nachname</td>
+          <td><input type="text" formControlName="lastName"></td>
+        </tr>
+        <tr>
+          <td>Vorname</td>
+          <td><input type="text" formControlName="firstName"></td>
+        </tr>
+        <tr>
+          <td>Straße</td>
+          <td><input type="text" formControlName="street"></td>
+        </tr>
+        <tr>
+          <td>Postcode</td>
+          <td><input type="text" formControlName="postcode"></td>
+        </tr>
+        <tr>
+          <td>Stadt</td>
+          <td><input type="text" formControlName="city"></td>
+        </tr>
+        <tr>
+          <td>Telefon</td>
+          <td><input type="text" formControlName="phone"></td>
+        </tr>
+      </table>
+      <button class="our-button" (click)="saveEmployee()">Aktualisieren</button>
+      <button class="our-button" (click)="openPopupWindow()">Löschen</button>
+      <button class="our-button" (click)="closeDetailedView()">Zurück</button>
+    </form>
+  </div>
 
-<div class="popupBackground">
-  <div class="popup">
-    <p>Bist du dir sicher, dass du den Mitarbeiter löschen willst?</p>
-    <button class="our-button" (click)="deleteEmployee()">Löschen</button>
-    <button class="our-button" (click)="closePopupWindow()">Abbrechen</button>
+  <div class="popupBackground">
+    <div class="popup">
+      <p>Bist du dir sicher, dass du den Mitarbeiter löschen willst?</p>
+      <button class="our-button" (click)="deleteEmployee()">Löschen</button>
+      <button class="our-button" (click)="closePopupWindow()">Abbrechen</button>
+    </div>
   </div>
 </div>

@@ -1,6 +1,19 @@
+.detailedViewWrapper {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.detailedView {
+  margin-top: 1em;
+}
+
 table {
   margin-left: auto;
   margin-right: auto;
+  text-align: left;
 }
 
 div {
@@ -12,6 +25,7 @@ div {
 table, th, td {
   border: 1px solid #000;
   border-collapse: collapse;
+  padding: .5em;
 }
 
 .popupBackground {
