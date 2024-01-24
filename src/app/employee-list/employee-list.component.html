@@ -8,7 +8,7 @@
       <th>Stadt</th>
       <th>Telefonnummer</th>
       <th>Skill Set</th>
-      <th><button class="button-2" (click)="createEmployee()">Erstellen</button></th>
+      <th><button class="button-affirm" (click)="createEmployee()">Erstellen</button></th>
     </tr>
     <tr *ngFor="let e of employees$ | async">
       <td>{{ e.lastName }}, {{ e.firstName }}</td>
@@ -22,7 +22,7 @@
         </p>
       </td>
       <td>
-        <button class="button-1" (click)='redirectToDetailedView(e.id)'>Bearbeiten</button>
+        <button class="button-neutral" (click)='redirectToDetailedView(e.id)'>Bearbeiten</button>
       </td>
     </tr>
   </table>

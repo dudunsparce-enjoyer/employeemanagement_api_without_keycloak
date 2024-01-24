@@ -9,3 +9,58 @@ app-employee-list {
 
 }
 
+.button-neutral {
+  text-shadow: 2px 2px 2px black;
+  font-size: 20px;
+  background-color: #88f;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: #000 2px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  margin: 1em;
+}
+
+.button-neutral:hover {
+  background-color: rgba(136, 136, 255, 0.7);
+}
+
+.button-deny {
+  text-shadow: 2px 2px 2px black;
+  font-size: 20px;
+  background-color: red;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: #000 2px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button-deny:hover {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.button-affirm {
+  text-shadow: 2px 2px 2px black;
+  font-size: 20px;
+  background-color: forestgreen;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: #000 2px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  margin: 1em;
+}
+
+.button-affirm:hover {
+  background-color: rgba(34, 139, 34, 0.7);
+}
+
+

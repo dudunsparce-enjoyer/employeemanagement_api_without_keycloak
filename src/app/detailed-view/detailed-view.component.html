@@ -1,6 +1,6 @@
 <div class="detailedViewWrapper">
   <div class="detailedView">
-    <h2>Person bearbeiten</h2>
+    <h1>Person bearbeiten</h1>
     <form [formGroup]="employeeForm">
       <table>
         <tr>
@@ -21,7 +21,7 @@
         </tr>
         <tr>
           <td>Postcode</td>
-          <td><input type="text" formControlName="postcode"></td>
+          <td><input type="text" maxlength="5" formControlName="postcode"></td>
         </tr>
         <tr>
           <td>Stadt</td>
@@ -32,17 +32,17 @@
           <td><input type="text" formControlName="phone"></td>
         </tr>
       </table>
-      <button class="our-button" (click)="saveEmployee()">Aktualisieren</button>
-      <button class="our-button" (click)="openPopupWindow()">Löschen</button>
-      <button class="our-button" (click)="closeDetailedView()">Zurück</button>
+      <button class="button-affirm" (click)="saveEmployee()">Speichern</button>
+      <button class="button-deny" (click)="openPopupWindow()">Löschen</button>
+      <button class="button-neutral" (click)="closeDetailedView()">Zurück</button>
     </form>
   </div>
 
   <div class="popupBackground">
     <div class="popup">
       <p>Bist du dir sicher, dass du den Mitarbeiter löschen willst?</p>
-      <button class="our-button" (click)="deleteEmployee()">Löschen</button>
-      <button class="our-button" (click)="closePopupWindow()">Abbrechen</button>
+      <button class="button-deny" (click)="deleteEmployee()">Ja</button>
+      <button class="button-neutral" (click)="closePopupWindow()">Nein</button>
     </div>
   </div>
 </div>
