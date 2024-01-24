@@ -1,26 +1,28 @@
-<button class="our-button" (click)="createEmployee()">Erstellen</button>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Straße</th>
-    <th>Postcode</th>
-    <th>Stadt</th>
-    <th>Telefonnummer</th>
-    <th>Skill Set</th>
-  </tr>
-  <tr *ngFor="let e of employees$ | async">
-    <td>{{ e.lastName }}, {{ e.firstName }}</td>
-    <td>{{ e.street }}</td>
-    <td>{{ e.postcode }}</td>
-    <td>{{ e.city }}</td>
-    <td>{{ e.phone }}</td>
-    <td>
-      <p *ngFor="let q of e.skillSet">
-        {{ q.skill }}
-      </p>
-    </td>
-    <td>
-      <button class="our-button" (click)='redirectToDetailedView(e.id)'>Bearbeiten</button>
-    </td>
-  </tr>
-</table>
+<div>
+  <button class="create-button" (click)="createEmployee()">Erstellen</button>
+  <table class="employee-table">
+    <tr>
+      <th>Name</th>
+      <th>Straße</th>
+      <th>Postcode</th>
+      <th>Stadt</th>
+      <th>Telefonnummer</th>
+      <th>Skill Set</th>
+    </tr>
+    <tr *ngFor="let e of employees$ | async">
+      <td>{{ e.lastName }}, {{ e.firstName }}</td>
+      <td>{{ e.street }}</td>
+      <td>{{ e.postcode }}</td>
+      <td>{{ e.city }}</td>
+      <td>{{ e.phone }}</td>
+      <td>
+        <p *ngFor="let q of e.skillSet">
+          {{ q.skill }}
+        </p>
+      </td>
+      <td>
+        <button class="our-button" (click)='redirectToDetailedView(e.id)'>Bearbeiten</button>
+      </td>
+    </tr>
+  </table>
+</div>
