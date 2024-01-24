@@ -3,12 +3,18 @@
   margin-right: auto;
 }
 
+h1 {
+  font-size: 40px;
+  padding: 20px;
+}
+
 div {
   background-color: #fff;
   display: flex;
   align-items: center;
   flex-flow: column;
   margin-top: 1em;
+  text-align: center;
 }
 
 table, th, td {
@@ -31,6 +37,7 @@ th, td {
 }
 
 .button-1 {
+  text-shadow: 2px 2px 2px black;
   font-size: 20px;
   background-color: #88f;
   color: #ffffff;
@@ -43,10 +50,12 @@ th, td {
 }
 
 .button-1:hover {
-  background-color: rgba(136, 136, 255, 0.7); /* Leicht transparentes Rot bei Hover */
+  background-color: rgba(136, 136, 255, 0.7);
 }
 
 .button-2 {
+  text-shadow: 2px 2px 2px black;
+
   font-size: 20px;
   background-color: forestgreen;
   color: #ffffff;
