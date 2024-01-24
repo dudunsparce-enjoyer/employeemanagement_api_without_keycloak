@@ -3,7 +3,6 @@ import {ActivatedRoute} from '@angular/router';
 import {Employee} from '../Employee';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {FormControl, FormGroup} from "@angular/forms";
-import {Qualification} from "../Qualification";
 import {EmployeeListComponent} from "../employee-list/employee-list.component";
 
 @Component({
@@ -21,7 +20,7 @@ export class DetailedViewComponent implements OnInit {
     city: new FormControl(''),
     phone: new FormControl('')
   });
-  public skillSet?: Array<Qualification>
+  // todo public skillSet?: Array<Qualification>
 
   constructor(
     private route: ActivatedRoute,
@@ -39,7 +38,7 @@ export class DetailedViewComponent implements OnInit {
       postcode: this.employeeForm.value.postcode || '',
       city: this.employeeForm.value.city || '',
       phone: this.employeeForm.value.phone || '',
-      skillSet: this.skillSet // todo: while the skillSet is now in fact sent to the backend, unfortunately the backend expects only the id of the skillSet
+      skillSet: undefined // todo: while the skillSet is now in fact sent to the backend, unfortunately the backend expects only the id of the skillSet
     };
 
     if (!this.id) {
@@ -79,8 +78,8 @@ export class DetailedViewComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
-      this.skillSet = params['skillSet'];
-      console.log(this.skillSet);
+      // todo this.skillSet = params['skillSet'];
+      // todo console.log(this.skillSet);
       this.fetchData();
     });
   }
@@ -110,7 +109,7 @@ export class DetailedViewComponent implements OnInit {
           city: employee.city || null,
           phone: employee.phone || null
         });
-        this.skillSet = employee.skillSet;
+        // todo this.skillSet = employee.skillSet;
       });
     }
   }
