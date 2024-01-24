@@ -1,5 +1,5 @@
 <div>
-  <button class="create-button" (click)="createEmployee()">Erstellen</button>
+  <h1>Liste der Angestellten</h1>
   <table class="employee-table">
     <tr>
       <th>Name</th>
@@ -8,6 +8,7 @@
       <th>Stadt</th>
       <th>Telefonnummer</th>
       <th>Skill Set</th>
+      <th><button class="create-button" (click)="createEmployee()">Erstellen</button></th>
     </tr>
     <tr *ngFor="let e of employees$ | async">
       <td>{{ e.lastName }}, {{ e.firstName }}</td>

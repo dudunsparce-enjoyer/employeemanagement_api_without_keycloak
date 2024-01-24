@@ -5,8 +5,10 @@
 
 div {
   background-color: #fff;
-  align-self: center;
-  justify-self: center;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  margin-top: 1em;
 }
 
 table, th, td {
